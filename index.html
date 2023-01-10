@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traductor || API </title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traductor || API</title>
+  </head>
+  <body>
+    <h1>Traductor</h1>
+    <div class="languages-container">
+      <label for="trafrom">Traducir del:</label>
+      <select name="" id="TranslateFrom">
+        <option value="1">Español</option>
+      </select>
 
-</head>
-<body>
-    <h1>Traductor </h1>
-    <div class= "languages-container">
-       <select name="" id="">
-        <option value="1">Opcion1</option>
-
-       </select> 
+      <label for="translateTo">Al:</label>
+      <select name="" id="translateTo">
+        <option value="1">Español</option>
+      </select>
+    </div>
+    <div class="result-container">
+        <label for="inputTranslateFrom">Ingresa el texto a Traducir</label><br>
         
-    
+        <textarea name="" id="inputTranslateFrom" cols="10" rows="10" > </textarea>
+        <label for="outputTranslate">Resultado:</label>
+        <textarea name="" id="outputTranslateTo" cols="30" rows="10" ></textarea>
 
     </div>
-
-
-    
-</body>
+  </body>
 </html>
