@@ -1,3 +1,9 @@
+const GET_URL = 'https://text-translator2.p.rapidapi.com/translate';
+
+fetch(GET_URL)
+.then(response => console.log(response));
+
+
 const encodedParams = new URLSearchParams();
 encodedParams.append("source_language", "en");
 encodedParams.append("target_language", "id");
