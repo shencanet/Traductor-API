@@ -12,21 +12,26 @@ text-align: center;
 }
 
 .result-container{
-    border: 1px solid red;
+
     display: flex;
     align-items: center;
-
+    justify-content: space-around;
 
 }
 
 .first-section{
     display: flex;
     flex-direction: column;
-    width: 150px;
+    width: 180px;
+    
 }
 
 .second-section{
     display: flex;
     flex-direction: column;
-    width: 150px;
+    width: 180px;
+}
+
+label{
+    text-align: center;
 }
