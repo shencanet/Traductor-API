@@ -18,3 +18,15 @@ text-align: center;
 
 
 }
+
+.first-section{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+
+.second-section{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
