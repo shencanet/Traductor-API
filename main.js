@@ -1,3 +1,6 @@
+//Elemntos Dom
+let TranslateFrom = document.querySelector('#TranslateFrom');
+let translateTo = document.querySelector('#translateTo');
 
 const encodedParams = new URLSearchParams();
 encodedParams.append("source_language", "es");
@@ -21,10 +24,16 @@ fetch(GET_URL, options)
 .then(response => response.json())
 .then(objeto => {
 	let lenguages = objeto.data.languages;
-	console.log()
+	//console.log(objeto.data.languages[11].code)
 	//codigo de los selects
 	lenguages.forEach(element => {
-		console.log(element)
+
+			TranslateFrom.innerHTML += `<option value="${element.code}">${element.name}</option>`
+			translateTo.innerHTML += `<option value="${element.code}">${element.name}</option>`
+		
 	})
-	 })
+	 }).catch(err => console.log(err))
+
+	 //traduccion recoger datos textarea para enviar a la pai
+	 
 
