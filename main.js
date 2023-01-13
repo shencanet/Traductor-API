@@ -1,11 +1,6 @@
-const GET_URL = 'https://text-translator2.p.rapidapi.com/translate';
-
-fetch(GET_URL)
-.then(response => console.log(response));
-
 
 const encodedParams = new URLSearchParams();
-encodedParams.append("source_language", "en");
+encodedParams.append("source_language", "es");
 encodedParams.append("target_language", "id");
 encodedParams.append("text", "What is your name?");
 
@@ -19,7 +14,11 @@ const options = {
 	body: encodedParams
 };
 
-fetch('https://text-translator2.p.rapidapi.com/translate', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+
+const GET_URL = 'https://text-translator2.p.rapidapi.com/translate';
+
+fetch(GET_URL, options)
+.then(response => response.json())
+.then(response =>console.log(response)
+);
+
