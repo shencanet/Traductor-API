@@ -45,7 +45,7 @@ TrnaslateBTN.addEventListener("click", () => {
  
   let InputTranslateFrom = document.querySelector("#InputTranslateFrom");
   let textToTranslate = InputTranslateFrom.value;
-
+let outputTranslateTo = document.querySelector("#outputTranslateTo")
 
   const encodedParams = new URLSearchParams();
   encodedParams.append("source_language", TranslateFrom.value);
@@ -63,7 +63,7 @@ TrnaslateBTN.addEventListener("click", () => {
 fetch('https://text-translator2.p.rapidapi.com/translate', options)
   .then((response) => response.json())
   .then(response => { 
-	outputTranslateTo.innerHTML += ` <textarea name="" id="outputTranslateTo" cols="10" rows="10">${response.value}</textarea>`;
+	outputTranslateTo.innerText = response.data.translatedText;
   })
   .catch((err) => console.log(err));
 
