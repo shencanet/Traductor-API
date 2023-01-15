@@ -20,7 +20,7 @@ const options = {
 
 const GET_URL = 'https://text-translator2.p.rapidapi.com/translate';
 
-fetch(GET_URL, options)
+fetch('https://text-translator2.p.rapidapi.com/translate', options)
 .then(response => response.json())
 .then(objeto => {
 	let lenguages = objeto.data.languages;
