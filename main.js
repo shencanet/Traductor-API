@@ -2,23 +2,13 @@ const URL_GET = "https://text-translator2.p.rapidapi.com/getLanguages";
 const URL_POST = "https://text-translator2.p.rapidapi.com/translate";
 //Elemntos Dom
 let TranslateFrom = document.querySelector("#TranslateFrom");
-//console.log(TranslateFrom);comprobar bien enlazado
+console.log(TranslateFrom);//comprobar bien enlazado
 let translateTo = document.querySelector("#translateTo");
+console.log(translateTo)
 
-const encodedParams = new URLSearchParams();
-encodedParams.append("source_language", "es");
-encodedParams.append("target_language", "en");
-encodedParams.append("text", "What is your name?");
 
-const options = {
-  method: "POST",
-  headers: {
-    "content-type": "application/x-www-form-urlencoded",
-    "X-RapidAPI-Key": "7b0da1adeemsh0be3fff6a70c538p13cb17jsn5b195099a61c",
-    "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
-  },
-  body: encodedParams,
-};
+
+
 const OPTIONS = {
   method: "get",
   headers: {
@@ -27,31 +17,65 @@ const OPTIONS = {
   },
 };
 
+
+
+
 fetch(URL_GET, OPTIONS)
   .then((res) => res.json())
   .then((objeto) => {
-    console.log(objeto.data.languages[11].code)
+    	//console.log(objeto.data.languages[11].code)
+	    //console.log(objeto.data.languages[11].name)
     //codigo de los selects
     let lenguages = objeto.data.languages;
     lenguages.forEach((element) => {
+		//console.log(element)
       TranslateFrom.innerHTML += `<option value="${element.code}">${element.name}</option>`;
       translateTo.innerHTML += `<option value="${element.code}">${element.name}</option>`;
     });
   });
+//traduccion recoger datos textarea para enviar
+let TrnaslateBTN = document.querySelector("#TrnaslateBTN");
 
-fetch(URL_POST, options)
+
+
+
+TrnaslateBTN.addEventListener("click", () => {
+  //console.log(InputTranslateFrom.value)//comprueba contenido enviado
+  //console.log("click")test comprobar que el listener fuciona
+ 
+  let InputTranslateFrom = document.querySelector("#InputTranslateFrom");
+  let textToTranslate = InputTranslateFrom.value;
+
+
+  const encodedParams = new URLSearchParams();
+  encodedParams.append("source_language", TranslateFrom.value);
+  encodedParams.append("target_language", translateTo.value);
+  encodedParams.append("text", textToTranslate);
+  const options = {
+	method: "POST",
+	headers: {
+	  "content-type": "application/x-www-form-urlencoded",
+	  "X-RapidAPI-Key": "7b0da1adeemsh0be3fff6a70c538p13cb17jsn5b195099a61c",
+	  "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
+	},
+	body: encodedParams,
+  };
+fetch('https://text-translator2.p.rapidapi.com/translate', options)
   .then((response) => response.json())
-  .then((objeto) => {
-
+  .then(response => { 
+	outputTranslateTo.innerHTML += ` <textarea name="" id="outputTranslateTo" cols="10" rows="10">${response.value}</textarea>`;
   })
   .catch((err) => console.log(err));
 
-//traduccion recoger datos textarea para enviar a la pai
 
-let TrnaslateBTN = document.querySelector("#TrnaslateBTN");
-let InputTranslateFrom = document.querySelector("#InputTranslateFrom");
-TrnaslateBTN.addEventListener("click", () => {
-  //console.log(InputTranslateFrom.value)
-  let InputTranslateFrom = document.querySelector("#InputTranslateFrom");
-  let textToTranslate = InputTranslateFrom.value;
+//console.log(TranslateFrom.value)
+
+
+
+
 });
+
+
+
+
+
