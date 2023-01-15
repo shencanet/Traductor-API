@@ -13,4 +13,4 @@ los grandes retos de est aaplicacion son el manejo de las promesas y el consumo 
 
 ![](/assets/captura.jpg)
 
-deploy https://shencanet.github.io/WORDLE-2/
+deploy https://shencanet.github.io/Traductor-API/
